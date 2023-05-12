@@ -7,6 +7,8 @@ By Chih-Yuan Chen, Yung-An Fang, Guan-Ren Wang, and Peng-Sheng Chen (High-Perfor
 
 #### Building GCC-MISRAC checker
 
+There may be some bugs in the code where we added the compiler option  "-Wmisra-c". Therefore, we need to compile the original GCC compiler, then overwrite the modified source code, and finally compile the modified source code that we have modified.
+
 1. Download GCC 7.5.0 source code: gcc-7.5.0.tar.xz
 
    
@@ -62,7 +64,7 @@ By Chih-Yuan Chen, Yung-An Fang, Guan-Ren Wang, and Peng-Sheng Chen (High-Perfor
 
    
 
-8.  Install GCC-MISRAC checker
+8. Install GCC-MISRAC checker
 
    ```
    $ make install
