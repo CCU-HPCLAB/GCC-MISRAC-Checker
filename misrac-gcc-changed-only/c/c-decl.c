@@ -64,7 +64,14 @@ struct node{
 	char key[31];
 	int used_flag;
 };
-long long int misra_enum_array_08_12[512];
+
+
+/* === modified by pschen === */
+/* I change the misra_enum_array_08_12's size to 4096.
+   The original size is 512, which is not enough to compile gcc itself.
+*/
+long long int misra_enum_array_08_12[4096];
+
 int misra_enum_index;
 extern struct node HASH_TABLE[HASH_SIZE];
 void hash_initialize(void)
@@ -8790,7 +8797,24 @@ build_enumerator (location_t decl_loc, location_t loc,
   the_enum->enum_next_value
     = build_binary_op (EXPR_LOC_OR_LOC (value, input_location),
 		       PLUS_EXPR, value, integer_one_node, 0);
-  misra_enum_array_08_12[misra_enum_index++] = *(*(struct tree_int_cst *)the_enum->enum_next_value).val;
+
+  /* === modified by pschen === */
+  /* The following code is used to check the pointer variable. */
+  /*
+  /*
+  if (((struct tree_int_cst *) the_enum->enum_next_value) == 0)
+     printf("Here2\n");
+
+  printf("--- %d ---\n", *(*((struct tree_int_cst *) the_enum->enum_next_value)).val);
+  */
+
+  /* === modified by pschen === */
+  /* Issue an error message when misra_enum_index is larger than misra_enum_array_08_12's size.
+  */ 
+  if (misra_enum_index > 4093)
+     internal_error("misra_enum_index = %d, run out of the array misra_enum_array_08_12's size.\n", misra_enum_index);
+     
+  misra_enum_array_08_12[misra_enum_index++] = *(*((struct tree_int_cst *) the_enum->enum_next_value)).val;
   misra_enum_array_08_12[misra_enum_index++] = loc;
   the_enum->enum_overflow = tree_int_cst_lt (the_enum->enum_next_value, value);
 

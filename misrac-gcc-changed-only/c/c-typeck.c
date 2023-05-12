@@ -8494,7 +8494,7 @@ extern location_t last_init_list_comma;
 void
 finish_implicit_inits (location_t loc, struct obstack *braced_init_obstack)
 {
-	inform(loc,"finish_implicit_inits");
+  //inform(loc,"finish_implicit_inits");
   while (constructor_stack->implicit)
     {
 	//debug_tree(constructor_index);
@@ -10079,14 +10079,23 @@ process_init_element (location_t loc, struct c_expr value, bool implicit,
 	trigger_18_7 = 1;                  							//18.7
 	}
 	if(Wmisra_c_trigger && TREE_CODE(constructor_type) == ARRAY_TYPE)								//Misra-c 9.4
-	{	inform(loc,"here");
+	{	//inform(loc,"here");
+                /* === modified by pschen === */
+                /* I comment the following inform statement.
+                   The inform() is used for debugging.
+                */
 		//DebugTree(constructor_max_index);
 		//DebugTree(constructor_type);
 		//misra_c_9_4( constructor_index,loc);
 		//inform(loc,"1");
 		//misra_c_9_3(constructor_index, constructor_max_index);
 	}
-	inform(loc,"constructor_depth:%d",constructor_depth);
+
+        /* === modified by pschen === */
+        /* I comment the following inform statement. 
+           The inform() is used for debugging.
+        */
+	//inform(loc,"constructor_depth:%d",constructor_depth);
 	//DebugTree(constructor_stack->type);
 
   if (!implicit && value.value && !integer_zerop (value.value))
