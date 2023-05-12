@@ -11,7 +11,11 @@ By Chih-Yuan Chen, Yung-An Fang, Guan-Ren Wang, and Peng-Sheng Chen (High-Perfor
 
    
 
-2. Uncompress gcc-7.5.0.tar.xz
+2. Download the directory misrac-gcc-changed-only
+
+   
+
+3. Uncompress gcc-7.5.0.tar.xz
 
    ```
    $ tar -Jxvf gcc-7.5.0.tar.xz
@@ -19,7 +23,7 @@ By Chih-Yuan Chen, Yung-An Fang, Guan-Ren Wang, and Peng-Sheng Chen (High-Perfor
 
    
 
-3. Copy misrac-gcc-changed-only/c-family/c.opt to gcc-7.5.0/gcc/c-family/
+4. Copy misrac-gcc-changed-only/c-family/c.opt to gcc-7.5.0/gcc/c-family/
 
    ```
    $ cp c.opt ./gcc-7.5.0/gcc/c-family/
@@ -27,7 +31,7 @@ By Chih-Yuan Chen, Yung-An Fang, Guan-Ren Wang, and Peng-Sheng Chen (High-Perfor
 
    
 
-4. Build GCC
+5. Build GCC
 
    ```
    $ mkdir build-misrac-gcc
@@ -38,7 +42,7 @@ By Chih-Yuan Chen, Yung-An Fang, Guan-Ren Wang, and Peng-Sheng Chen (High-Perfor
 
    
 
-5. Replace the original files with the modified files.
+6. Replace the original files with the modified files.
 
    ```
    $ cd ..
@@ -49,7 +53,7 @@ By Chih-Yuan Chen, Yung-An Fang, Guan-Ren Wang, and Peng-Sheng Chen (High-Perfor
 
    
 
-6. Re-build GCC
+7. Re-build GCC
 
    ```
    $ cd build-misrac-gcc
@@ -58,7 +62,7 @@ By Chih-Yuan Chen, Yung-An Fang, Guan-Ren Wang, and Peng-Sheng Chen (High-Perfor
 
    
 
-7.  Install GCC-MISRAC checker
+8.  Install GCC-MISRAC checker
 
    ```
    $ make install
