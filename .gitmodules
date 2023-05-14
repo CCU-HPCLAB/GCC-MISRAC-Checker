@@ -1,0 +1,3 @@
+[submodule "gcc-7.5.0"]
+	path = gcc-7.5.0
+	url = https://github.com/gcc-mirror/gcc.git
