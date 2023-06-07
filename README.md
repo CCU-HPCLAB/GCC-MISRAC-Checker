@@ -3,21 +3,32 @@
 
 By Chih-Yuan Chen, Yung-An Fang, Guan-Ren Wang, and Peng-Sheng Chen (High-Performance Computing laboratory, [Chung Cheng University](https://www.ccu.edu.tw/).)
 
+This work targeted at MISRA-C:2012 (the third edition of the specification) Amendment 1.
+
 ----------------------------
 
 #### Building GCC-MISRAC checker
 
-There may be some bugs in the code where we added the compiler option  "-Wmisra-c". Therefore, we need to compile the original GCC compiler, then overwrite the modified source code, and finally compile the modified source code that we have modified.
+There may be some bugs in the code where we added the compiler option  "**-Wmisra-c**". Therefore, we need to compile the original GCC compiler, then overwrite the modified source code, and finally compile the modified source code that we have modified.
 
-1. Download GCC 7.5.0 source code: gcc-7.5.0.tar.xz
+1. Install some required libraries using apt-get.
+
+   ```
+   $ sudo apt-get update
+   $ sudo apt-get install build-essential libgmp-dev libmpfr-dev libmpc-dev 
+   ```
 
    
 
-2. Download the directory misrac-gcc-changed-only
+2. Download GCC 7.5.0 source code: gcc-7.5.0.tar.xz
 
    
 
-3. Uncompress gcc-7.5.0.tar.xz
+3. Download the directory misrac-gcc-changed-only
+
+   
+
+4. Uncompress gcc-7.5.0.tar.xz
 
    ```
    $ tar -Jxvf gcc-7.5.0.tar.xz
@@ -25,15 +36,15 @@ There may be some bugs in the code where we added the compiler option  "-Wmisra-
 
    
 
-4. Copy misrac-gcc-changed-only/c-family/c.opt to gcc-7.5.0/gcc/c-family/
+5. Copy misrac-gcc-changed-only/c-family/c.opt to gcc-7.5.0/gcc/c-family/
 
    ```
-   $ cp c.opt ./gcc-7.5.0/gcc/c-family/
+   $ cp misrac-gcc-changed-only/c-family/c.opt ./gcc-7.5.0/gcc/c-family/
    ```
 
    
 
-5. Build GCC
+6. Build GCC
 
    ```
    $ mkdir build-misrac-gcc
@@ -44,7 +55,7 @@ There may be some bugs in the code where we added the compiler option  "-Wmisra-
 
    
 
-6. Replace the original files with the modified files.
+7. Replace the original files with the modified files.
 
    ```
    $ cd ..
@@ -55,7 +66,7 @@ There may be some bugs in the code where we added the compiler option  "-Wmisra-
 
    
 
-7. Re-build GCC
+8. Re-build GCC
 
    ```
    $ cd build-misrac-gcc
@@ -64,7 +75,7 @@ There may be some bugs in the code where we added the compiler option  "-Wmisra-
 
    
 
-8. Install GCC-MISRAC checker
+9. Install GCC-MISRAC checker
 
    ```
    $ make install
