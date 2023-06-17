@@ -3,7 +3,9 @@
 
 By Chih-Yuan Chen, Yung-An Fang, Guan-Ren Wang, and Peng-Sheng Chen (High-Performance Computing laboratory, [Chung Cheng University](https://www.ccu.edu.tw/).)
 
-This work targeted at MISRA-C:2012 (the third edition of the specification) Amendment 1.
+This work targeted at MISRA-C:2012 (the third edition of the specification) Amendment 1. The detailed design information can be obtained from [our paper](https://www.tandfonline.com/doi/full/10.1080/09540091.2023.2222934).
+
+- Chih-Yuan Chen, Yung-An Fang, Guan-Ren Wang & Peng-Sheng Chen (2023) A GCC-based checker for compliance with MISRA-C's single-translation-unit rules, Connection Science, 35:1, DOI: [10.1080/09540091.2023.2222934](https://doi.org/10.1080/09540091.2023.2222934)
 
 ----------------------------
 
